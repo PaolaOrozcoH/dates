@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dates</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', sans-serif;
+      background-color: #fff0f5;
+      text-align: center;
+      padding: 20px;
+      font-size: 20px;
+    }
+    h1 {
+      color: #d63384;
+    }
+    .section {
+      margin: 30px 0;
+      background: #ffe6f0;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 10px #ffcce0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff66a3;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .result {
+      font-size: 18px;
+      margin-top: 15px;
+      color: #b30059;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Dejale la elección al destino</h1>
+
+  <div class="section">
+    <h2>☕ Café / Desayuno</h2>
+    <button onclick="elegir('cafe')"><b>Elegir café</b></button>
+    <p id="cafe" class="result"></p>
+  </div>
+
+  <div class="section">
+    <h2>🍝 Comida</h2>
+    <button onclick="elegir('comida')"><b>Elegir comida</b></button>
+    <p id="comida" class="result"></p>
+  </div>
+
+  <div class="section">
+    <h2>🍦 Munchies</h2>
+    <button onclick="elegir('munchies')"><b>Elegir munchie</b></button>
+    <p id="munchies" class="result"></p>
+  </div>
+
+  <div class="section">
+    <h2>🎲 Actividad</h2>
+    <button onclick="elegir('actividad')"><b>Elegir actividad</b></button>
+    <p id="actividad" class="result"></p>
+  </div>
+  <script>
+    const opciones = {
+      cafe: [
+        "Bodega",
+        "La cachora besucona",
+        "Casa Reina",
+        "Paradiso"
+      ],
+      comida: [
+        "Mei Mei",
+        "Picnic Pizza",
+        "Hana Sushi",
+        "Luffy",
+        "Ramen Esperanzas",
+        "Verbena Pizzería"
+      ],
+      munchies: [
+        "Frozé",
+        "Europe Tours",
+        "Bless",
+        "Crepas"
+      ],
+      actividad: [
+        "Ganarte en parchís",
+        "Ver Master Chef Kids",
+        "Ganarte en Rubik (buu)",
+        "Ir al cine",
+        "Ver peli de amor dosmilera",
+        "Ir al Oxxo ",
+        "Pijamiada",
+        "Existir juntas"
+      ]
+    };
+
+    function elegir(categoria) {
+      const lista = opciones[categoria];
+      const eleccion = lista[Math.floor(Math.random() * lista.length)];
+      document.getElementById(categoria).innerText = "" + eleccion + "";
+    }
+  </script>
+<div style="margin-top: 40px;">
+  <img src="IMG_8565.jpg" style="max-width: 80%; border-radius: 20px;">
+  <p style="font-style: italic; color: #b30059; margin-top: 30px;">
+    p.d. cualquier plan contigo siempre lo disfruto </p>
+</div>
+<!-- Justo antes de cerrar el body -->
+<script>
+  setInterval(() => {
+    const heart = document.createElement('div');
+    heart.textContent = '<3';
+    heart.style.position = 'fixed';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.top = '100vh';
+    heart.style.fontSize = '24px';
+    heart.style.animation = 'float 4s linear forwards';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 4000);
+  }, 800);
+</script>
+
+<style>
+  @keyframes float {
+    to {
+      transform: translateY(-110vh);
+      opacity: 0;
+    }
+  }
+</style>
+
+</body>
+</html>
